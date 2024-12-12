@@ -1,9 +1,7 @@
 const mongoose= require('mongoose');
-
-
 // connecting through the mongodb Atlas
 // !                                userName   : Password    
-mongoose.connect("mongodb+srv://yashjain0112233:          @basics-of-mongodb.zyiwk.mongodb.net/",{
+mongoose.connect("mongodb+srv://yashjain0112233:@basics-of-mongodb.zyiwk.mongodb.net/",{
     serverSelectionTimeoutMS: 5000
 })
 .then(()=>{console.log(`Data Base connected`)})
@@ -25,23 +23,54 @@ const User=mongoose.model('User',userschema);
 
 async function runQuery() {
     try {
-        // create a new document 
-        const newUser=await User.create({
-            name:'utkarsh rawat singh',
-            email:'urs@gmail.com',
-            age:21,
-            isActice:false,
-            tags:['mastery','Mongoose','basics'],
-        })
+        // !create a new document 
+        // const newUser=await User.create({
+        //     name:'Nikhil rawat',
+        //     email:'rawaLakshy1@gmail.com',
+        //     age:19,
+        //     isActice:false,
+        //     tags:['student ','11','basics'],
+        // })
+        // console.log('Created New user',newUser);
 
-        console.log('Created New user',newUser);
+        // !get all user 
+        // const allUser=await User.find({});
+        // console.log(allUser);   
+        
+        // !get user by specific Field
+        // const UserValue=await User.find({name:"yash veer jain"})
+        // console.log(UserValue);
+        
+        // ! using FindOne Method
+        // const FIndLakshayRawat=await User.findOne({name:"Lakshay rawat"});
+        // console.log(FIndLakshayRawat);
+        
+        // !using find By Id method 
+        // const lastUser=await User.findById(newUser._id)
+        // console.log(lastUser);
+
+        // !selectfield from the user to get 
+        // const selectedField=await User.find().select('name email age -_id');
+        // console.log(selectedField);
+        
+        // !limited user get
+        // const limitedUser=await User.find().select('name -_id').limit(5).skip(1);
+        // console.log(limitedUser);
+        
+        // !using sort function
+        // const sortUserByAge=await User.find().sort({age:-1}).select('name age -_id');
+        // console.log(sortUserByAge);
+        
+        // !Count the documeb=nts
+        // const CountDocument=await User.countDocuments({isActice:true});
+        // console.log(CountDocument);
         
     } catch (error) {
         console.log(error);
         
     }
     finally{
-        await mongoose.connection.close();//method to close the connection 
+        await mongoose.connection.close(); 
     }
     
 }
