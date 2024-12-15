@@ -24,14 +24,14 @@ const User=mongoose.model('User',userschema);
 async function runQuery() {
     try {
         // !create a new document 
-        // const newUser=await User.create({
-        //     name:'Nikhil rawat',
-        //     email:'rawaLakshy1@gmail.com',
-        //     age:19,
-        //     isActice:false,
-        //     tags:['student ','11','basics'],
-        // })
-        // console.log('Created New user',newUser);
+        const newUser=await User.create({
+            name:'Updated User ',
+            email:'Updateduser@gmail.com',
+            age:29,
+            isActice:false,
+            tags:['err ','90','chroma'],
+        })
+        console.log('Created New user',newUser);
 
         // !get all user 
         // const allUser=await User.find({});
@@ -42,7 +42,7 @@ async function runQuery() {
         // console.log(UserValue);
         
         // ! using FindOne Method
-        // const FIndLakshayRawat=await User.findOne({name:"Lakshay rawat"});
+        // const FindLakshayRawat=await User.findOne({name:"Lakshay rawat"});
         // console.log(FIndLakshayRawat);
         
         // !using find By Id method 
@@ -64,6 +64,21 @@ async function runQuery() {
         // !Count the documeb=nts
         // const CountDocument=await User.countDocuments({isActice:true});
         // console.log(CountDocument);
+
+
+        // !Delete the last user 
+        // const deleteuser=await User.findByIdAndDelete(newUser._id);
+        // console.log(deleteuser);
+
+        //! update User 
+        // const updateUser=await User.findByIdAndUpdate(newUser._id,{
+        //     $set: {age:100},
+        //     $push:{tags:'Hello'}
+        // },
+        // {new:true});
+        // console.log(`Updated User ->${updateUser}`);
+        
+
         
     } catch (error) {
         console.log(error);
